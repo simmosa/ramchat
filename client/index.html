@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css">
+    <title>ram chat</title>
+
+</head>
+<body>
+
+    <section class="main-section">
+        <h1 class="title">Ram chat 🐏 💻</h1>
+
+        <div class="welcome-div">
+            <div class="start-chat-div">
+                <input class="start-code-input" type="text">
+                <button class="start-code-btn">start code</button>
+            </div>
+            <div class="join-chat-div">
+                <input class="join-code-input" type="text">
+                <button class="join-code-btn">join code</button>
+            </div>
+        </div>    
+
+        <div class="chat-box-div hide-element">
+            <ul class="chat-ul">
+            </ul>
+            
+            <input class="chat-input" type="text">
+            <button class="chat-btn">submit</button>
+        </div>
+    </section>
+    <!-- <input class="code-input" type="text">
+    <button class="code-btn">submit code</button> -->
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
