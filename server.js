@@ -1,4 +1,4 @@
-const { createSocket } = require('dgram');
+const { createSocket, Socket } = require('dgram');
 const express = require('express')
 const app = express()
 
@@ -101,13 +101,16 @@ io.on('connection', (sock) => {
 
     sock.on('disconnect', (message) => {
         // remove the user from the room
-        rooms.forEach(room => { // check all rooms
+        rooms.forEach((room, roomIndex) => { // check all rooms
             for (let i = 0; i < room.clients.length; i++) { // clients array 
                 if (sock.id === room.clients[i].sock.id) {
                     let alias = room.clients[i].alias
                     room.clients = room.clients.filter((client,index) => index != i)
                     notifyRoomOfExit(room, alias)
                 }
+            }
+            if (room.clients.length === 0) { // if all participants have left. Destroy the room
+                rooms = rooms.filter((room, index) => index != roomIndex)
             }
         })
         // let foundRoom = rooms.filter(room => room.name === roomName)
@@ -136,4 +139,3 @@ notifyRoomOfExit = (room, alias) => {
         client.sock.emit('participants', (room.clients.length))        
     })
 } 
-
