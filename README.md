@@ -4,7 +4,7 @@ RAM chat is a web-based chat application for the user looking for simplicity and
 
 ### RAM chat link
 
-RAM chat can be found here: https://ram-chat.herokuapp.com/
+RAM chat can be found here: https://ram-chat-by-invite.herokuapp.com/
 
 ## Features
 
